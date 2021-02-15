@@ -33,3 +33,7 @@ A little code for numerical analysis of the one dimensional heat equation. For t
 Basically, the temperature for each part of the rod is equal to the temperature at the previous time step plus the average of the temperature of the two parts surrounding it at the previous time step.
 
 Results look like:
+
+![1d_rod_flat](heat_equation/1d_rod_heat_space_time.jpg?raw=true "Title")
+![1d_rod_3d](heat_equation/1d_rod_heat_space_time_temp.jpg?raw=true "Title")
+![1d_rod_steps](heat_equation/1drod_heat_space_steps.jpg?raw=true "Title")
