@@ -1,5 +1,5 @@
 # partial_differential_equations
-Place for experimentation for understanding of PDEs
+Place for experimentation for understanding of PDEs. The plan here is not to create clean, efficient code, but to experiment with, and play around with, some differential equations numerically.
 
 Little things done so far to help my intuition:
 
