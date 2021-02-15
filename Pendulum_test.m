@@ -53,6 +53,27 @@ for i=2:length(step)
     angle(i) = angle(i - 1) + angle_change(i - 1)/t;
 end
 
-plot(angle, angle_change)
+plot(angle, angle_change, '-r')
+hold on
+
+% do 5000 steps of another swing
+figure(2);
+step = [1:1:5000];
+t = 100 % t is factor to shrink time step
+angle = zeros(length(step), 1);
+angle_change = zeros(length(step), 1);
+angle(1) = -1/2*pi;
+angle_change(1) = -5;
+% see how mu effects behaviour
+mu = 0.15;
+theta_dd = @(theta, theta_d) -1 * mu * theta_d - (g/L) * sin(theta);
+
+for i=2:length(step)
+    change = theta_dd(angle(i - 1), angle_change(i - 1));
+    angle_change(i) = angle_change(i-1) + change/t;
+    angle(i) = angle(i - 1) + angle_change(i - 1)/t;
+end
+
+plot(angle, angle_change, '-b')
 
 
