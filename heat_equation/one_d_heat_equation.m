@@ -1,18 +1,18 @@
 %define our heat equation
 
-alpha = 1;
+alpha = 10;
 heat_equation = @(T_1, T_2, T_3) (alpha/2) * ((T_3 - T_2) - (T_2 - T_1));
 
 %temp of rod with ambient temp at each end
-hot_rod(1:50) = 30 + sin([1:50]*0.1);
-cold_rod(1:50) = 10 - cos([1:50]*0.1);
+hot_rod(1:250) = 30 + sin([1:250]*0.1);
+cold_rod(1:250) = -10 - cos([1:250]*0.1);
 cold_rod(length(cold_rod)) = 20;
 hot_rod(1) = 20;
 rod = [hot_rod, cold_rod];
 
 %spatial parts and time parts
 x = [1:length(rod)];
-steps = [1:5000];
+steps = [1:10000];
 factor = 1/10;
 mesh_temp_time = zeros(length(steps), length(x));
 mesh_temp_time(1,:) = rod;
