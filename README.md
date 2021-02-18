@@ -1,5 +1,5 @@
 # partial_differential_equations
-Place for experimentation for understanding of PDEs
+Place for experimentation for understanding of PDEs. The plan here is not to create clean, efficient code, but to experiment with, and play around with, some differential equations numerically.
 
 Little things done so far to help my intuition:
 
@@ -22,15 +22,14 @@ A small bit of code used to create a vector field of a swinging pendulum, that d
 
 ## One Dimensional Heat Equation
 
-A little code for numerical analysis of the one dimensional heat equation. For the example in the code, the rod is n=100 units long, with the ends of the rod being at "ambient room temperature" always. The first half of the rod is hot, the second half is cold. The equation used to analyse each step is
+A little code for numerical analysis of the one dimensional heat equation. For the example in the code, the rod is n=100 units long, with the ends of the rod being at "ambient room temperature" always. The first half of the rod is hot, the second half is cold. The code will calculate in m=5000 time steps The equation used to analyse each step is
 
-**x_{i+1} = x_i + alpha/2 * (T_{i-1} - T_{i}) - (T_{i} - T_{i-1})** with i=2:(n-1), where
+**x_{i+1, j} = x_{i, j} + alpha/2 * ((x_{i, j+1} - x_{i, j}) - (x_{i, j} - x_{i, j-1}))** with j=2:(n-1), i=1:m, where
 
-- x_{i} is the temperature at step i
-- T_{i} is the temperature at i of the previous time step
-- alpha is some constant that is dependent on the material being heated (dictates how quickly the rod can cool)
+- x_{i, j} is the temperature at step i at position j on the rod
+- alpha is some constant that is dependent on the material being heated (dictates how quickly the rod can exchange energy)
 
-Basically, the temperature for each part of the rod is equal to the temperature at the previous time step plus the average of the temperature of the two parts surrounding it at the previous time step.
+Basically, the temperature for each part x_{i, j} of the rod at some time i, position j, is equal to the temperature at the same point but previous time step plus the average of the temperature of the two parts surrounding it at the previous time step.
 
 Results look like:
 
