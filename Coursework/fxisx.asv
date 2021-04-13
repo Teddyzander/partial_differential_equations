@@ -1,0 +1,24 @@
+L = 1; %boundary for PDE
+
+% x is a vector, starting at 0, going to L
+x = (0:0.001:1)*L;
+hold on;
+% plot the behaviour of the pde at different values of t
+for t = [0, 0.1, 0.5]
+    u = 0*x;
+    % set how many values of the sum to use
+    N = 100000;
+    for n = 0:N
+        % calculate coeffecient
+        a_n = (4.*sin((pi./2).*(2.*n + 1).*x))
+        % Add on an appropriate multiple of the separable solution
+        u = u + a_n.*sin((pi/2 + n*pi)*x/L)*exp((-1/2)* ... 
+            t * (2*(pi/2 + n*pi)^2+t));
+    end
+    % plot the result
+    plot(x,u)    
+end
+% beautify the plot
+xlabel('$x$', 'Interpreter' ,'Latex');
+ylabel('$u$', 'Interpreter' ,'Latex')
+legend('$t=0.0$', '$t=0.1$', '$t=0.5$', 'Interpreter' ,'Latex')
